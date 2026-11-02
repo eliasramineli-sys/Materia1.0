@@ -1,0 +1,50 @@
+MATERIA 1.0.0 — CADASTRO DE MATERIAIS E ESTOQUE
+
+COMO ABRIR NO WINDOWS 10/11 DE 64 BITS
+1. Clique com o botão direito no ZIP e escolha "Extrair tudo".
+2. Abra a pasta extraída e dê dois cliques em Materia.exe.
+3. Mantenha o .exe junto das pastas app e runtime.
+
+O Java já acompanha a versão portátil. Não é necessário instalar Java,
+configurar banco de dados ou estar conectado à internet para usar o programa.
+O arquivo .exe é o iniciador; a aplicação, as telas e as regras são Java.
+
+PRIMEIROS PASSOS
+- Em Sistema, informe o nome da empresa e o responsável padrão.
+- Cadastre os fornecedores, se desejar, e clique em + Novo material.
+- Informe código, nome, unidade, custo, preço, mínimo e saldo inicial.
+- Use Movimentações para entradas, saídas e ajustes de inventário.
+- Para conhecer as telas com dados fictícios, use Sistema > Carregar
+  demonstração antes de cadastrar materiais reais.
+
+FORMATOS
+- Valores: 1250,50 (sem ponto de milhares).
+- Quantidades: até três casas decimais, por exemplo 2,750.
+- Datas de relatório: dd/mm/aaaa.
+- Entradas recalculam o custo médio ponderado. Saídas não alteram esse custo.
+- Ajuste de inventário recebe o saldo final contado, não a diferença.
+
+SEUS DADOS
+São salvos em %LOCALAPPDATA%\Materia\materia.db.
+Não ficam na pasta do programa. Atualizar ou mover o aplicativo preserva
+o cadastro nesse computador. Para transferir dados para outro PC, use
+Sistema > Criar backup e, no outro PC, Sistema > Restaurar backup.
+
+Um backup diário é criado ao abrir; são mantidas até 14 cópias diárias locais.
+Copie backups importantes também para outro dispositivo.
+Antes de restaurar, o sistema valida o arquivo e salva uma cópia dos dados atuais.
+
+RELATÓRIOS
+CSV abre em Excel/LibreOffice (UTF-8, separador ponto e vírgula).
+HTML abre no navegador; Ctrl+P permite imprimir ou salvar em PDF.
+As tabelas do sistema também possuem impressão pelo diálogo do Windows.
+
+DESENVOLVIMENTO
+O ZIP de código-fonte contém o projeto Maven para IntelliJ IDEA, os testes,
+o README e um script PowerShell que gera outro .exe com jpackage no Windows.
+
+LIMITES DESTA VERSÃO
+Aplicativo local, uma instância por pasta de dados, sem login e sem sincronização.
+Responsável é um campo informativo. Não há emissão de nota fiscal.
+A versão entregue foi compilada e a aplicação Java foi verificada em Linux.
+A abertura nativa do .exe precisa ser confirmada em um computador Windows.

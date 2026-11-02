@@ -1,0 +1,37 @@
+name: Verificar e empacotar
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+      - run: mvn -B verify
+      - name: Verificar interface
+        run: xvfb-run -a env MATERIA_UI_TEST=1 mvn -B -Dtest=UiSmokeTest test
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+      - name: Gerar aplicativo Windows
+        shell: pwsh
+        run: ./scripts/gerar-windows.ps1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Materia-Windows-x64
+          path: dist/Materia-1.0.0-Windows-x64.zip
+          if-no-files-found: error
