@@ -1,0 +1,10 @@
+target/
+dist/
+.idea/
+*.iml
+*.db
+*.db-*
+*.log
+runtime/
+dados-teste/
+*.lock
